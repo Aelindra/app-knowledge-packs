@@ -21,10 +21,6 @@ Consumption-agnostic and device-agnostic: any AI agent may use this knowledge re
 - 适合：稳定的长青应用（核心规则与界面多年不变）、社区 wiki 活跃的领域、小众但稳定的工具
 - 不适合：高频改版的界面（电商大促页）、风控敏感的账号型应用、教程型常识（模型已经会了，写了就贬值）
 
-## 判读规程
-
-消费侧（runtime）如何用知识包判定应用状态：见 [docs/state-judgment-protocol.md](docs/state-judgment-protocol.md)。
-
 ## 目录
 
 ```
