@@ -1,4 +1,4 @@
-# app-knowledge-packs
+# app-lore
 
 **长尾计算机应用的结构综述，写给 AI 读。**
 
