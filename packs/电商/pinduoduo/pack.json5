@@ -1,0 +1,6 @@
+{
+  name: "ecommerce.pinduoduo",
+  version: "0.1",
+  app: "com.xunmeng.pinduoduo",
+  risk: "account",
+}

@@ -1,0 +1,6 @@
+{
+  name: "ecommerce.jd",
+  version: "0.1",
+  app: "com.jingdong.app.mall",
+  risk: "account",
+}

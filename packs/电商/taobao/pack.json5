@@ -1,0 +1,6 @@
+{
+  name: "ecommerce.taobao",
+  version: "0.1",
+  app: "com.taobao.taobao",
+  risk: "account",
+}

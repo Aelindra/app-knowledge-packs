@@ -1,0 +1,6 @@
+{
+  name: "ecommerce.xianyu",
+  version: "0.1",
+  app: "com.taobao.idlefish",
+  risk: "account",
+}
