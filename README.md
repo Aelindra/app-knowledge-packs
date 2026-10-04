@@ -1,10 +1,10 @@
 # app-knowledge-packs
 
-**长尾计算机应用的结构性综述目录，写给 AI 读。**
+**长尾计算机应用的结构综述，写给 AI 读。**
 
-每个条目回答三个问题：这个应用是做什么的、业务流程长什么样（结构综述）；
-AI 对它的先验有多不可靠（长尾度评定）；去哪里获取并核对最新事实（活跃信息源）。
-条目是索引与综述，不是操作手册，也不绑定任何运行时格式或操控框架。
+条目采用 Agent Skills 开放格式（SKILL.md）：简单应用一个综述文件即完整条目；
+复杂应用按前台功能模块拆分，综述内引用；wiki 成熟的应用直接指路引用。
+条目价值由"长尾度"量化——AI 无知识面时对该应用的判定偏差越大，条目越有价值。
 
 > 中文说明见下。
 
@@ -14,7 +14,7 @@ AI 对它的先验有多不可靠（长尾度评定）；去哪里获取并核�
 
 - 收录：**计算机（桌面/PC 为主）系长尾应用**的业务流程与使用（business flows & usage）
 - 不收：通用知识、教程型常识（模型已掌握的内容）、设备/框架绑定的运行时格式
-- 判断标准：AI 无知识面时的判定是否可靠——不可靠的应用才值得建条目（见"长尾度"）
+- 价值判据：AI 无知识面时的判定是否可靠——不可靠的应用才值得建条目（见"长尾度"）
 
 ## 条目结构
 
@@ -22,13 +22,28 @@ AI 对它的先验有多不可靠（长尾度评定）；去哪里获取并核�
 packs/<类别>/<app>/
   pack.json5     # 必需：{name: "<类别slug>.<appslug>", version, app?: "<可执行名/标识>",
                  #         risk: "low"|"account"|"tos-grey"}
-  survey.md      # 必需：结构综述——应用定位、核心实体、业务流程骨架、词表。
-                 #      只写结构性事实；每个事实标注来源
+  SKILL.md       # 必需：综述（YAML frontmatter: name/description，Agent Skills 开放格式）。
+                 #      简单应用：单文件即完整条目
+  modules/       # 可选：复杂应用按前台功能模块拆分，每模块一个 .md，
+                 #      在 SKILL.md 内列出模块清单并引用（粒度如：核心机制/角色/运营/模式）
   tail-degree.md # 必需：长尾度评定——测量方法、无知识面判定与事实的偏差记录、
                  #      所用模型与评定日期
   sources.md     # 必需：活跃信息源——官方文档/社区 wiki/论坛版块等链接，
                  #      各附最后核对日期；失效源应移除
 ```
+
+## 加载模型（分层）
+
+- **综述（SKILL.md）**：通用场景的默认加载——AI 知道前台是什么应用、有什么功能，
+  多数操作到此足够。
+- **功能模块（modules/）**：流程涉及特定功能模块的深层场景时按需加载（例如涉及
+  模式相关流程才加载模式模块）。模块清单写在综述里；模块不重复综述内容。
+
+## 内容策略
+
+- **指路优先**：wiki/官方文档成熟的应用，sources.md 直接指路，不复制内容
+- **长文只写给没有公开资料的**：未文档化的功能与经验才展开写
+- 条目由资深用户编辑；引用的社区内容需遵守其许可并注明出处
 
 ## 长尾度（tail-degree）
 
@@ -50,9 +65,10 @@ packs/开发工具  设计创作  专业软件  系统运维  办公协同  游�
 
 ## 贡献
 
-1. 按"条目结构"建目录，survey.md 的每个事实标注来源
-2. 长尾度必须实测后填写，附方法与条件
-3. 提交 PR；维护者核对来源有效性与结构完整性
+1. 按"条目结构"建目录；综述与模块由熟悉该应用的资深用户编写
+2. wiki 成熟的应用以 sources.md 指路为主；长文只写给没有公开资料的部分
+3. 长尾度必须实测后填写，附方法与条件
+4. 提交 PR；维护者核对来源有效性与结构完整性
 
 ## 规则
 
@@ -72,12 +88,11 @@ MIT（目录脚手架）。条目内容涉及厂商权利的部分按 Takedown �
 
 ---
 
-**EN**: A structural survey catalog of long-tail computer applications, written
-for AI to read. Each entry answers three questions: what the app does and how
-its business flows are structured (survey), how unreliable AI priors are about
-it (tail-degree: measured deviation between zero-knowledge AI judgment and
-fact, per app, with model and date recorded), and where to fetch and verify
-current facts (active sources with last-checked dates). Entries are surveys and
-indexes — no runtime formats, no binding to any automation framework. Scope:
-business flows and usage of long-tail desktop/PC applications; general or
-tutorial-level knowledge is excluded. Risk labels mandatory; takedown on report.
+**EN**: Structural surveys of long-tail computer applications, written for AI to
+read. Entries follow the open Agent Skills format (SKILL.md): a single survey
+file for simple apps; per-feature modules for complex ones, referenced from the
+survey; apps with mature wikis are covered by linking, not duplicating. Entry
+value is quantified by tail-degree — the measured deviation between
+zero-knowledge AI judgment and fact. Scope: business flows and usage of
+long-tail desktop/PC applications; general or tutorial-level knowledge is
+excluded. Risk labels mandatory; takedown on report.
