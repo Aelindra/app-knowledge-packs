@@ -1,0 +1,6 @@
+{
+  name: "efficiency.snipaste",
+  version: "0.1",
+  app: "Snipaste.exe",
+  risk: "low",
+}

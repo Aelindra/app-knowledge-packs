@@ -1,0 +1,6 @@
+{
+  name: "efficiency.utools",
+  version: "0.1",
+  app: "uTools",
+  risk: "low",
+}

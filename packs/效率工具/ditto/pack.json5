@@ -1,0 +1,6 @@
+{
+  name: "efficiency.ditto",
+  version: "0.1",
+  app: "Ditto.exe",
+  risk: "low",
+}
